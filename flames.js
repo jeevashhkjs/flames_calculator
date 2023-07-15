@@ -97,25 +97,66 @@
 
 // }
 
-let array = [5, 0, 1, 0, 1]
-let output = [];
-let flames = ["f", "l", "a", "m", "e", "s"];
+// let array = [5, 0, 1, 0, 1]
+// let output = [];
+// let flames = ["f", "l", "a", "m", "e", "s"];
 
-let count = 0;
-function recur(){
+// let count = 0;
+// function recur(){
     
-    for(let i=0;i<flames.length;i++){
-        if(array[1] != i){
-            output.push(flames[i])
+//     for(let i=0;i<flames.length;i++){
+//         if(array[1] != i){
+//             output.push(flames[i])
+//         }
+//     }
+    
+//     count++
+//     if(count < 4){
+//         recur()
+//     }
+// }
+// recur()
+
+let recurCnt = 1;
+
+let array1 = [];
+let array2 = [];
+
+let output = [];
+
+let flm = ['f','l','a','m','e','s']
+let wcn = 6;
+
+function recurFc(){
+
+    recurCnt++
+
+    let count = 0
+
+    for(let i=1;i<= wcn ;i++){
+        count++
+        if(count > flm.length){
+            count = 1
+        }
+        if(i == wcn){
+            flm.forEach((value,index) => {
+                if(index > 0 && index < count){
+                    array1.push(flm[index-1]);
+                }
+                if(index >= count && index < flm.length){
+                    array2.push(flm[index])
+                }
+            })
+            flm.splice(count-1,1)
         }
     }
-    
-    count++
-    if(count < 4){
-        recur()
-    }
+
+    let filterArray = array2.concat(array1)
+    flm = filterArray
+    output.push(flm)
+    console.log(output)
 }
-recur()
+recurFc()
 
 
 
