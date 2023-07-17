@@ -117,13 +117,36 @@
 // }
 // recur()
 
+//get word count
+
+let a = "hii"
+let b = "oii"
+
+function replaceAt(string, index, replace) {
+    return string.slice(0, index) + replace + string.slice(index + 1);
+}
+
+for (i=0;i<a.length;i++){
+for(j=0;j<b.length;j++){
+  if(a[i]==b[j]){
+    a = replaceAt(a,i,'*');
+    b = replaceAt(b,j,'*');
+  }
+}
+}
+
+let filerNames = [...a,...b];
+let wordCnt = filerNames.filter((char)=>char != "*").length;
+
+// flames logic get a single letter in a array
+
 let recurCnt = 1;
 
 let array1 = [];
 let array2 = [];
 
 let flm = ['f','l','a','m','e','s']
-let wcn = 9;
+let wcn = wordCnt;
 
 function recurFc(){
 
@@ -159,6 +182,26 @@ function recurFc(){
 }
 recurFc()
 
+switch (flm[0]) {
+    case "f": console.log("friend")
+        break;
 
+    case "l": console.log("love")
+        break;
+    
+    case "a": console.log("affection")
+        break;
 
+    case "m": console.log("marraige")
+        break;
+    
+    case "e": console.log("enemy")
+        break;
 
+    case "s": console.log("sister")
+        break;
+
+    default:
+        console.log("sorry")
+
+}
