@@ -122,10 +122,8 @@ let recurCnt = 1;
 let array1 = [];
 let array2 = [];
 
-let output = [];
-
 let flm = ['f','l','a','m','e','s']
-let wcn = 6;
+let wcn = 9;
 
 function recurFc(){
 
@@ -139,22 +137,25 @@ function recurFc(){
             count = 1
         }
         if(i == wcn){
-            flm.forEach((value,index) => {
-                if(index > 0 && index < count){
-                    array1.push(flm[index-1]);
+            for(let i=0;i<flm.length;i++){
+                if(i>=0 && i<count-1){
+                    array1.push(flm[i])
                 }
-                if(index >= count && index < flm.length){
-                    array2.push(flm[index])
+                else if(i>count-1 && i<flm.length){
+                    array2.push(flm[i])
                 }
-            })
-            flm.splice(count-1,1)
+            }
         }
     }
 
     let filterArray = array2.concat(array1)
     flm = filterArray
-    output.push(flm)
-    console.log(output)
+    array1.length = 0;
+    array2.length = 0;
+
+    if(recurCnt < 6){
+        recurFc()
+    }
 }
 recurFc()
 
