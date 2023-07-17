@@ -119,8 +119,8 @@
 
 //get word count
 
-let a = "hii"
-let b = "oii"
+let a = "jeeva"
+let b = "mahalakshmi"
 
 function replaceAt(string, index, replace) {
     return string.slice(0, index) + replace + string.slice(index + 1);
@@ -159,6 +159,7 @@ function recurFc(){
         if(count > flm.length){
             count = 1
         }
+        console.log(count)
         if(i == wcn){
             for(let i=0;i<flm.length;i++){
                 if(i>=0 && i<count-1){
@@ -172,11 +173,12 @@ function recurFc(){
     }
 
     let filterArray = array2.concat(array1)
+
     flm = filterArray
     array1.length = 0;
     array2.length = 0;
 
-    if(recurCnt < 6){
+    if(recurCnt < 2){
         recurFc()
     }
 }
