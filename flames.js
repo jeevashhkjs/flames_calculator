@@ -207,3 +207,33 @@ switch (flm[0]) {
         console.log("sorry")
 
 }
+
+let parentCnt = 0;
+let childCnt = 0;
+
+let array = [ 6, 1, 2, 3, 2 ]
+
+function parentRecur(){
+  parentCnt++
+console.log(array[parentCnt-1],"parent")
+  function childRecur(){
+    childCnt++
+    console.log(childCnt-1,"child")
+      if(childCnt < array[parentCnt-1]){
+        setTimeout(()=>{
+          childRecur();
+        },1000)
+        
+      }else{
+        childCnt = 0
+      }
+  }
+  setTimeout(()=>{
+    childRecur();
+  },1000)
+
+  if(parentCnt < array.length){
+    parentRecur();
+  }
+}
+parentRecur();
